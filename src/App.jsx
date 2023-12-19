@@ -11,11 +11,12 @@ function App() {
     e.preventDefault();
     let form = e.target;
 		let formData = new FormData(form);
-    console.log(formData);
+   // console.log(formData);
 		let formDataObj = Object.fromEntries(formData.entries())
     let formJSON = JSON.stringify(formDataObj)
-		console.log(formDataObj)
-		console.log(formJSON)
+		//console.log(formDataObj)
+		//console.log(formJSON)
+    alert(`Congratulation ${formDataObj.name} you are registered to the website.`)
   }
 
   return (
@@ -31,6 +32,7 @@ function App() {
           <div className="w-full max-w-lg flex items-center justify-between  gap-3 m-3">
             <input
               type="textbox"
+              name="name"
               value={name}
               onChange={(e) => {
                 setName(e.target.value);
@@ -41,6 +43,7 @@ function App() {
             />
             <input
               type="number"
+              name="age"
               placeholder="Age"
               value={age}
               onChange={(e) => {
@@ -53,6 +56,7 @@ function App() {
 
           <input
             type="email"
+            name="email"
             placeholder="Email"
             value={email}
             onChange={(e) => {
@@ -62,6 +66,7 @@ function App() {
           />
           <input
             type="textbox"
+            name="username"
             placeholder="Username"
             value={username}
             onChange={(e) => {
@@ -71,6 +76,7 @@ function App() {
           />
           <input
             type="password"
+            name="password"
             placeholder="Password"
             value={password}
             onChange={(e) => {
@@ -82,7 +88,6 @@ function App() {
           <button
             className="w-full max-w-lg py-2 text-lg m-3 bg-blue-600 text-white rounded-md hover:bg-blue-800 active:bg-blue-500"
             type="submit"
-           
           >
             Submit
           </button>
