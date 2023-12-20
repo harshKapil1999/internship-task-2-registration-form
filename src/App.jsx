@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const [name, setName] = useState("");
@@ -7,16 +8,20 @@ function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   const handelForm = (e) => {
     e.preventDefault();
     let form = e.target;
 		let formData = new FormData(form);
    // console.log(formData);
 		let formDataObj = Object.fromEntries(formData.entries())
-    let formJSON = JSON.stringify(formDataObj)
+    //let formJSON = JSON.stringify(formDataObj)
 		//console.log(formDataObj)
 		//console.log(formJSON)
+    
     alert(`Congratulation ${formDataObj.name} you are registered to the website.`)
+    navigate("/dashboard")
   }
 
   return (
@@ -91,7 +96,9 @@ function App() {
           >
             Submit
           </button>
+          
         </form>
+        
       </div>
     </div>
   );
